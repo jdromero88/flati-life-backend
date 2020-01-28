@@ -1,0 +1,2 @@
+class TechSpecificationsController < ApplicationController
+end
