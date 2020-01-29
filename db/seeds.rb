@@ -5,9 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require faker
+require 'faker'
 
-const jose =   User.create(
+Cohort.destroy_all
+User.destroy_all
+TechSpecification.destroy_all
+Project.destroy_all
+
+pipedreams = Cohort.create(
+  name: 'pipedreams',
+  started: '2019-10-28',
+  graduation: '2020-02-14',
+)
+
+jose = User.create(
     first_name: 'Jose',
     last_name: 'Romero',
     username: 'jromero',
@@ -16,19 +27,18 @@ const jose =   User.create(
     pronouns: 'He|Him',
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYXUQvMtuvVCkxP0XvcFQbzAhzgRnF8RyLskDmwm5NMF7AO3IVfQ&s',
     bio: Faker::Lorem.paragraph(sentence_count: 2),
-    fav_language: 'JS',
+    fav_language: 'Ruby',
     course_name: 'Software Engineer',
     current_job: 'drink coffee',
-    cohort_id: 1,
-    before_flatiron: 'Working in a restaurant as sous chef'
-
-
+    cohort_id: Cohort.first.id,
+    before_flatiron: 'Working in a restaurant as sous chef',
   )
-10.times do
+
+9.times do
   User.create(
-    first_name: Faker::Name.first_name
-    last_name:  Faker::Name.last_name
-    username: Faker::Name.unique.name
+    first_name: Faker::Name.first_name,
+    last_name:  Faker::Name.last_name,
+    username: Faker::Name.unique.name,
     password: 'password',
     email: Faker::Internet.unique.email,
     pronouns: '',
@@ -37,7 +47,32 @@ const jose =   User.create(
     fav_language: '',
     course_name: 'Software Engineer',
     current_job: '',
-    cohort_id: 1,
-    before_flatiron: ''
+    cohort_id: Cohort.first.id,
+    before_flatiron: '',
   )
 end
+
+ruby = TechSpecification.create(
+  name: 'Ruby',
+  description: 'Ruby is...
+A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.',
+website: 'https://www.ruby-lang.org/en/',
+)
+
+js = TechSpecification.create(
+  name: 'JavaScript',
+  description: 'JavaScript, often abbreviated as JS, is a high-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.',
+website: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+)
+
+5.times do
+  Project.create(
+    name: Faker::Hacker.ingverb + Faker::Hacker.verb,
+    description: Faker::Hacker.say_something_smart,
+    image: Faker::LoremPixel.image,
+    repository_url: Faker::Internet.url,
+  )
+end
+
+byebug
+0
