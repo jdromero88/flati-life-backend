@@ -17,7 +17,8 @@ gem 'puma', '~> 4.1'
 gem 'bcrypt', '~> 3.1.7'
 #JWT to use tokens
 gem "jwt", "~> 2.1"
-
+#This gem is a port of Perl's Data::Faker library that generates fake data.
+gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
