@@ -13,7 +13,7 @@ TechSpecification.destroy_all
 Project.destroy_all
 
 pipedreams = Cohort.create(
-  name: 'pipedreams',
+  name: '|dreams|',
   started: '2019-10-28',
   graduation: '2020-02-14',
 )
@@ -38,7 +38,7 @@ jose = User.create(
   User.create(
     first_name: Faker::Name.first_name,
     last_name:  Faker::Name.last_name,
-    username: Faker::Name.unique.name,
+    username: Faker::Name.unique.name.gsub(/[[:space:]]/, ''),
     password: 'password',
     email: Faker::Internet.unique.email,
     pronouns: '',
@@ -74,5 +74,22 @@ website: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   )
 end
 
-byebug
-0
+user_project = UserProject.create(
+  user_id: jose.id,
+  project_id: Project.first.id
+)
+
+user_project_two = UserProject.create(
+  user_id: User.last.id,
+  project_id: Project.first.id
+)
+
+projec_tech = ProjectTech.create(
+  project_id: Project.first.id,
+  tech_specification_id: js.id
+)
+
+# byebug
+# 0
+# removes all whitespace, including unicode ones.
+# .gsub(/[[:space:]]/, '')
