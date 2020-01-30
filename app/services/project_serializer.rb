@@ -2,7 +2,29 @@ class ProjectSerializer
   def initialize(projects_object)
     @projects = projects_object
   end
+
   def to_serialized_json
+    @projects.to_json(
+      {
+        :except => [:created_at, :updated_at]
+      }
+    )
+  end
+
+  def to_serialized_json_with_users
+    @projects.to_json(
+      {
+        :except => [:created_at, :updated_at],
+        :include => {
+          :users => {
+            :except => [:password_digest, :created_at, :updated_at]
+          }
+        }
+      }
+    )
+  end
+
+  def to_serialized_json_with_users_and_project_techs
     @projects.to_json(
       {
         :except => [:created_at, :updated_at],
