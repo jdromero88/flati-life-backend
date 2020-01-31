@@ -33,6 +33,21 @@ jose = User.create(
     cohort_id: Cohort.first.id,
     before_flatiron: 'Working in a restaurant as sous chef',
   )
+sara = User.create(
+    first_name: 'Sara',
+    last_name: 'Tarnvik',
+    username: 'sara',
+    password: 'sara',
+    email: 'sara@gmail.com',
+    pronouns: 'She|Her',
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYXUQvMtuvVCkxP0XvcFQbzAhzgRnF8RyLskDmwm5NMF7AO3IVfQ&s',
+    bio: Faker::Lorem.paragraph(sentence_count: 2),
+    fav_language: 'Ruby',
+    course_name: 'Software Engineer',
+    current_job: 'drink coffee',
+    cohort_id: Cohort.first.id,
+    before_flatiron: 'empty for now',
+  )
 
 9.times do
   User.create(
