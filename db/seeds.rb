@@ -40,13 +40,28 @@ sara = User.create(
     password: 'sara',
     email: 'sara@gmail.com',
     pronouns: 'She|Her',
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYXUQvMtuvVCkxP0XvcFQbzAhzgRnF8RyLskDmwm5NMF7AO3IVfQ&s',
+    avatar: 'https://kooledge.com/assets/default_medium_avatar-57d58da4fc778fbd688dcbc4cbc47e14ac79839a9801187e42a796cbd6569847.png',
     bio: Faker::Lorem.paragraph(sentence_count: 2),
     fav_language: 'Ruby',
     course_name: 'Software Engineer',
     current_job: 'drink coffee',
     cohort_id: Cohort.first.id,
     before_flatiron: 'empty for now',
+  )
+ryan = User.create(
+    first_name: 'Ryan',
+    last_name: 'Smith',
+    username: 'rsmith',
+    password: 'rsmith',
+    email: 'ryan@gmail.com',
+    pronouns: 'He|Him',
+    avatar: 'https://kooledge.com/assets/default_medium_avatar-57d58da4fc778fbd688dcbc4cbc47e14ac79839a9801187e42a796cbd6569847.png',
+    bio: Faker::Lorem.paragraph(sentence_count: 2),
+    fav_language: 'Ruby',
+    course_name: 'Software Engineer',
+    current_job: 'drink coffee',
+    cohort_id: Cohort.first.id,
+    before_flatiron: 'Went to high school kind of...',
   )
 
 9.times do
