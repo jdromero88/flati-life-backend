@@ -48,6 +48,7 @@ sara = User.create(
     cohort_id: Cohort.first.id,
     before_flatiron: 'empty for now',
   )
+
 ryan = User.create(
     first_name: 'Ryan',
     last_name: 'Smith',
@@ -63,7 +64,21 @@ ryan = User.create(
     cohort_id: Cohort.first.id,
     before_flatiron: 'Went to high school kind of...',
   )
-
+  matt = User.create(
+      first_name: 'Matt',
+      last_name: 'Heavner',
+      username: 'matt',
+      password: 'matt',
+      email: 'matt@gmail.com',
+      pronouns: 'He|Him',
+      avatar: 'https://nick-intl.mtvnimages.com/uri/mgid:file:docroot:nick.com:/nick-assets/shows/images/jimmy-neutron/characters/character_large_332x363_jimmy.jpg',
+      bio: Faker::Lorem.paragraph(sentence_count: 3),
+      fav_language: 'Ruby',
+      course_name: 'Software Engineer',
+      current_job: 'drink coffee',
+      cohort_id: Cohort.first.id,
+      before_flatiron: '',
+    )
 9.times do
   User.create(
     first_name: Faker::Name.first_name,
