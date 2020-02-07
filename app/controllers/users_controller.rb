@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     user = User.create!(user_strong_params)
     render json: UserSerializer.new(user).to_serialized_json
   end
