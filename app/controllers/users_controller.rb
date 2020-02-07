@@ -1,20 +1,20 @@
 class UsersController < ApplicationController
   def index
-    users = User.all
-    render json: UserSerializer.new(users).to_serialized_json
+    @users = User.all
+    render json: UserSerializer.new(@users).to_serialized_json
   end
 
   def create
     # byebug
-    user = User.create!(user_strong_params)
-    render json: UserSerializer.new(user).to_serialized_json
+    @user = User.create!(user_strong_params)
+    render json: UserSerializer.new(@user).to_serialized_json
   end
   def login
     # byebug
-    user = User.find_by(username: params[:username])
-    if user
-      if user.authenticate(params[:password])
-        render json: UserSerializer.new(user).to_serialized_json
+    @user = User.find_by(username: params[:username])
+    if @user
+      if @user.authenticate(params[:password])
+        render json: UserSerializer.new(@user).to_serialized_json
       else
         render json:{
           error: true,
