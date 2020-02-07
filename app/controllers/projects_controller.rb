@@ -5,8 +5,11 @@ class ProjectsController < ApplicationController
   end
   def create
     @project = Project.create!(project_strong_params)
-    byebug
-    user_project = UserProject.create!(project_id:@project.id, user_id:params[:user][:id])
+    # byebug
+    user_project = UserProject.create!(project_id:@project.id, user_id:params[:user])
+    if params[:collaborator_id]
+      user_project = UserProject.create!(project_id:@project.id, user_id:params[:collaborator_id])
+    end
     render json: ProjectSerializer.new(@project).to_serialized_json
   end
   def show
