@@ -7,7 +7,14 @@ class UsersController < ApplicationController
   def create
     # byebug
     @user = User.create!(user_strong_params)
-    render json: UserSerializer.new(@user).to_serialized_json
+    if @user
+      render json: UserSerializer.new(@user).to_serialized_json
+    else
+      render json: {
+        error:true,
+        message: 'Username or email already taken.'
+      }, status: :not_acceptable
+    end
   end
   def login
     # byebug

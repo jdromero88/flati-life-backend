@@ -6,7 +6,12 @@ class ProjectSerializer
   def to_serialized_json
     @projects.to_json(
       {
-        :except => [:created_at, :updated_at]
+        :except => [:created_at, :updated_at],
+        :include => {
+          :users => {
+            :except => [:password_digest, :created_at, :updated_at]
+          }
+        }
       }
     )
   end

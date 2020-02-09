@@ -5,10 +5,15 @@ class ProjectsController < ApplicationController
   end
   def create
     @project = Project.create!(project_strong_params)
-    # byebug
     user_project = UserProject.create!(project_id:@project.id, user_id:params[:user])
     if params[:collaborator_id]
       user_project = UserProject.create!(project_id:@project.id, user_id:params[:collaborator_id])
+    end
+    if params[:technologies]
+      byebug
+      params[:technologies].length.times do |i|
+        projec_tech = ProjectTech.create!(project_id:@project.id, tech_specification_id:params[:technologies][i])
+      end
     end
     render json: ProjectSerializer.new(@project).to_serialized_json
   end
@@ -23,7 +28,8 @@ class ProjectsController < ApplicationController
         :description,
         :image,
         :repository_url,
-        :user_projects_attributes
+        :user_projects_attributes,
+        :technologies => []
       )
     end
 end

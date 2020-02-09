@@ -17,6 +17,16 @@ pipedreams = Cohort.create(
   started: '2019-10-28',
   graduation: '2020-02-14',
 )
+dcweb112119 = Cohort.create(
+  name: 'dcweb112119',
+  started: '2019-11-21',
+  graduation: '2020-02-14',
+)
+dcweb011820 = Cohort.create(
+  name: 'dcweb011820',
+  started: '2020-01-18',
+  graduation: '2020-03-19',
+)
 
 jose = User.create(
     first_name: 'Jose',
