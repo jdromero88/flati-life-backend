@@ -9,7 +9,7 @@ class TechSpecificationSerializer
         :except  => [:created_at, :updated_at],
         :include => {
           :project_techs => {
-            :except => [:created_at, :updated_at],
+            :except => [:created_at, :updated_at, :project_id, :tech_specification_id],
             :include => {
               :project => {
                 :except => [:created_at, :updated_at]

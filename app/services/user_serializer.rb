@@ -6,13 +6,13 @@ class UserSerializer
   def to_serialized_json
     @users.to_json(
       {
-        :except => [:password_digest, :updated_at],
+        :except => [:password_digest, :updated_at,:cohort_id],
         :include => {
           :cohort => {
             :except => [:created_at, :updated_at]
           },
           :user_projects => {
-            :except => [:created_at, :updated_at],
+            :except => [:created_at, :updated_at, :user_id, :project_id],
             :include => {
               :project => {
                 :except => [:created_at, :updated_at]
