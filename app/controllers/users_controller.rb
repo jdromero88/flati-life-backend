@@ -16,6 +16,10 @@ class UsersController < ApplicationController
       }, status: :not_acceptable
     end
   end
+  def show
+    @user = User.find(params[:id])
+    render json: UserSerializer.new(@user).to_serialized_json
+  end
   def login
     # byebug
     @user = User.find_by(username: params[:username])
@@ -33,6 +37,19 @@ class UsersController < ApplicationController
         error: true,
         message: 'Incorrect username or password!'
       }, status: :unauthorized
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user
+      @user.update!(user_strong_params)
+      # byebug
+      render json: UserSerializer.new(@user).to_serialized_json
+    else
+      render json: {
+        error:true,
+      }
     end
   end
 

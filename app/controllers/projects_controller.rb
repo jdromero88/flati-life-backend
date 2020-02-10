@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
       user_project = UserProject.create!(project_id:@project.id, user_id:params[:collaborator_id])
     end
     if params[:technologies]
-      byebug
+      # byebug
       params[:technologies].length.times do |i|
         projec_tech = ProjectTech.create!(project_id:@project.id, tech_specification_id:params[:technologies][i])
       end
