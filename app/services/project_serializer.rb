@@ -8,8 +8,8 @@ class ProjectSerializer
       {
         :except => [:created_at, :updated_at],
         :include => {
-          :users => {
-            :except => [:password_digest, :created_at, :updated_at]
+          :user_projects => {
+            :only => [:user_id]
           }
         }
       }
@@ -20,9 +20,9 @@ class ProjectSerializer
     @projects.to_json(
       {
         :except => [:created_at, :updated_at],
-        :include => {
+        :include =>{
           :users => {
-            :except => [:password_digest, :created_at, :updated_at]
+            :only => [:id]
           }
         }
       }

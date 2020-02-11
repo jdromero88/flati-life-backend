@@ -4,4 +4,9 @@ class Project < ApplicationRecord
   has_many :project_techs, dependent: :destroy
   has_many :tech_specifications, through: :project_techs
   accepts_nested_attributes_for :users, :tech_specifications
+
+  def map_user_id
+    byebug
+    return self.user_projects.map{|user| user.user_id}
+  end
 end

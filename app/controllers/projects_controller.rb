@@ -21,6 +21,16 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     render json: ProjectSerializer.new(@project).to_serialized_json
   end
+
+  def destroy
+    # byebug
+    @project = Project.find(params[:id])
+    @project.destroy
+    render json: {
+      message: 'success'
+    }
+  end
+
   private
     def project_strong_params
       params.require(:project).permit(
