@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     render json: ProjectSerializer.new(@projects).to_serialized_json
   end
+
   def create
     @project = Project.create!(project_strong_params)
     user_project = UserProject.create!(project_id:@project.id, user_id:params[:user])
@@ -12,11 +13,12 @@ class ProjectsController < ApplicationController
     if params[:technologies]
       # byebug
       params[:technologies].length.times do |i|
-        projec_tech = ProjectTech.create!(project_id:@project.id, tech_specification_id:params[:technologies][i])
+        project_tech = ProjectTech.create!(project_id:@project.id, tech_specification_id:params[:technologies][i])
       end
     end
-    render json: ProjectSerializer.new(@project).to_serialized_json
+    render json: UserProjectSerializer.new(user_project).to_serialized_json
   end
+
   def show
     @project = Project.find(params[:id])
     render json: ProjectSerializer.new(@project).to_serialized_json

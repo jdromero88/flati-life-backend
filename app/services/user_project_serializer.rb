@@ -6,6 +6,11 @@ class UserProjectSerializer
     @user_projects.to_json(
       {
         :except => [:created_at, :updated_at],
+        :include => {
+          :project => {
+            :except => [:created_at, :updated_at]
+          }
+        }
       }
     )
   end

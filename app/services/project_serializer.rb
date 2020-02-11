@@ -7,13 +7,16 @@ class ProjectSerializer
     @projects.to_json(
       {
         :except => [:created_at, :updated_at],
-        :include => {
-          :user_projects => {
-            :only => [:user_id]
+        :include =>{
+          :users => {
+            :only => [:id]
           }
         }
       }
     )
+    # @own_events.as_json(
+    #   include: [:attendees, :user, :start_times, :end_times],
+    #   methods: :created_date
   end
 
   def to_serialized_json_with_users
