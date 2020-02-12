@@ -19,6 +19,19 @@ class ProjectsController < ApplicationController
     render json: UserProjectSerializer.new(user_project).to_serialized_json
   end
 
+  def update
+    @project = Project.find(params[:id])
+    if @project
+      @project.update!(project_strong_params)
+      # byebug
+      render json: ProjectSerializer.new(@project).to_serialized_json
+    else
+      render json: {
+        error:true,
+      }
+    end
+  end
+
   def show
     @project = Project.find(params[:id])
     render json: ProjectSerializer.new(@project).to_serialized_json
