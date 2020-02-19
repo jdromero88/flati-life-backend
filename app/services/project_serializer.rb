@@ -9,7 +9,10 @@ class ProjectSerializer
         :except => [:created_at, :updated_at],
         :include =>{
           :users => {
-            :only => [:id]
+            :only => [:id, :username]
+          },
+          :tech_specifications => {
+            :only => [:id, :name]
           }
         }
       }
