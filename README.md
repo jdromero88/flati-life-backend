@@ -1,46 +1,36 @@
-# README
+## FlatiLife Backend
+This is a space to link up with Flatiron students new and old.
+- Connect with current students and alumni to expand your network.
+- Exhibit your projects and see what others are working on.
+- Give feedback, share ideas and provide moral support.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img src='./src/images/flatilife.gif' alt="flatilife-demo" width="946px" />
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Developed with:
+- Ruby on Rails with validations, strong params, authentication using Bcrypt ruby gem
+- Used PostgreSQL for the database and developed RESTful API
+- Javascript, ReactJS and Redux
+- Semantic-UI framework and custom CSS
 
 
+## To run this project
+- Clone this repository
+- Open a terminal & go to the directory and run the next commands:
+  - bundle install
+  - rails db:create
+  - rails db:migrate
+  - rails db:seed
+  - run: rails s (Start the local server in your browser http://localhost:3000 )
 
-<!-- backup db -->
-<!-- open psql console -->
-psql
-<!-- to exit -->
-\q
-<!-- connect to the database -->
-\c flati_life_backend_development
-<!-- listing the tables -->
-\dt
-<!-- show the data in the table -->
-select * from cohort;
-<!-- create a backup file .sql -->
-pg_dump --no-owner flati_life_backend_development > flati_life_backup.sql
-<!-- to import the backup file to a database -->
-psql flati_backup < flati_life_backup.sql
-<!-- create a database -->
-CREATE DATABASE flati_life_backup;
-<!-- to list databases -->
-\list
+- FlatiLife frontend link: https://github.com/jdromero88/flati-life-frontend
+
+## Preview
+<img src='./images/flatilife.png' alt="flatilife" width="946px" />
+<hr>
+<img src='./images/flatilife-profile.png' alt="flatilife-profile" width="946px" />
+<hr>
+<img src='./images/flatilife-projects.png' alt="flatilife-projects" width="946px" />
+<hr>
+<img src='./images/flatilife-students.png' alt="flatilife-students" width="946px" />
+<hr>
+<img src='./images/flatilife-student-profile.png' alt="flatilife-student-profile" width="946px" />
