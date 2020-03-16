@@ -4,7 +4,7 @@ This is a space to link up with Flatiron students new and old.
 - Exhibit your projects and see what others are working on.
 - Give feedback, share ideas and provide moral support.
 
-<img src='./src/images/flatilife.gif' alt="flatilife-demo" width="946px" />
+<img src='./images/flatilife.gif' alt="flatilife-demo" width="946px" />
 
 ## Developed with:
 - Ruby on Rails with validations, strong params, authentication using Bcrypt ruby gem
